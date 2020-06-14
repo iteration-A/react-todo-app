@@ -2,13 +2,12 @@ import React, { useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import TodoList from "./TodoList";
 import useTodos from "../hooks/useTodos";
+import checkLocalStorage from "./helpers/seedInfo";
 import "./TodoApp.css";
 
 export default function TodoApp() {
-  const todosStart = JSON.parse(window.localStorage.getItem("todos"));
-
   const [todos, addTodo, updateTodo, removeTodo] = useTodos(
-    todosStart.length === 0 ? todosTest : todosStart
+    checkLocalStorage()
   );
   // Synchronize to localStorage after a change
   useEffect(() => {
@@ -26,25 +25,3 @@ export default function TodoApp() {
     </div>
   );
 }
-
-const todosTest = [
-  {
-    name: "kill ma self",
-    info: "just that",
-    status: "done",
-    category: "life",
-  },
-  {
-    name: "kill ma self",
-    info: "just that",
-    status: "doing",
-    category: "life",
-  },
-  {
-    name: "kill ma self",
-    info:
-      "just that dasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasddasdasdasdasasasassssssssssssssssssssssssssssssssssssssssssssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasssssssssssssssssssssss",
-    status: "pending",
-    category: "aa",
-  },
-];
