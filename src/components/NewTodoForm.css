@@ -1,0 +1,154 @@
+.NewTodoForm {
+  background-color: aliceblue;
+  width: 50%;
+  border-radius: 25px;
+  padding: 5%;
+  min-height: 100vh;
+  position: relative;
+}
+
+@media only screen and (max-width: 600px) {
+  .NewTodoForm {
+    width: 90%;
+    padding-top: 10%;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+  .NewTodoForm {
+    width: 70%;
+    padding-top: 10%;
+  }
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1200px) {
+  .NewTodoForm {
+    width: 65%;
+  }
+}
+
+.NewTodoForm-title {
+  font-weight: 100;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .NewTodoForm-title {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+  .NewTodoForm-title {
+    font-size: 2.2rem;
+  }
+}
+
+.NewTodoForm-go-back {
+  position: absolute;
+  top: 3%;
+  left: 3%;
+  background-color: crimson;
+  padding: 10px 15px;
+  color: aliceblue;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .NewTodoForm-go-back {
+    font-size: 12px;
+    padding: 7px 12px;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+  .NewTodoForm-go-back {
+    font-size: 14px;
+  }
+}
+
+.NewTodoForm-input label {
+  position: absolute;
+  top: -44px;
+  left: 0;
+  font-size: 24px;
+  color: blueviolet;
+}
+
+@media only screen and (max-width: 600px) {
+  .NewTodoForm-input label {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+  .NewTodoForm-input label {
+    font-size: 20px;
+  }
+}
+
+.NewTodoForm-input:nth-of-type(3) label {
+  top: -24px;
+  font-size: 24px;
+}
+
+.NewTodoForm-input {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.NewTodoForm-input input,
+.NewTodoForm-input textarea {
+  background-color: #cbd2d8bb;
+  border-radius: 25px;
+  border: none;
+  padding: 10px 0;
+  text-align: center;
+  outline: none;
+}
+.NewTodoForm-input textarea {
+  resize: none;
+}
+
+.NewTodoForm-input-select {
+  text-align: center;
+  flex-basis: 90%;
+}
+
+.NewTodoForm-input-select-btn {
+  flex-basis: 10%;
+}
+
+.NewTodoForm-input-select-btn svg {
+  fill: blueviolet;
+}
+
+.NewTodoForm-input-select-container {
+  width: 100%;
+  display: flex;
+}
+
+.NewTodoForm-input-button {
+  width: 100%;
+  border: none;
+  border-radius: 25px;
+  padding: 15px 0;
+  background-color: blueviolet;
+  color: aliceblue;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.NewTodoForm-form {
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  display: flex;
+  align-items: center;
+}
