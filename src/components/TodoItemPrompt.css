@@ -1,0 +1,15 @@
+.TodoItemPrompt-option {
+  text-align: center !important;
+}
+
+.done {
+  background-color: #07dd19a9 !important;
+}
+
+.pending {
+  background-color: crimson !important;
+}
+
+.doing {
+  background-color: #ddc911d0 !important;
+}

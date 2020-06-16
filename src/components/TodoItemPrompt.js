@@ -6,6 +6,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Dialog from "@material-ui/core/Dialog";
 import { DispatchTodosContext } from "../contexts/todos.context";
+import "./TodoItemPrompt.css";
 
 function TodoItemPrompt(props) {
   const dispatchTodos = useContext(DispatchTodosContext);
@@ -33,6 +34,7 @@ function TodoItemPrompt(props) {
       default:
         close();
     }
+    close();
   };
 
   return (
@@ -45,6 +47,7 @@ function TodoItemPrompt(props) {
               button
               onClick={() => handleListItemClick(option)}
               key={option}
+              className={`TodoItemPrompt-option ${option.toLowerCase()}`}
             >
               <ListItemText primary={option} />
             </ListItem>

@@ -11,7 +11,7 @@ export default function TodoItem(props) {
   const [prompt, openPrompt, closePrompt] = usePrompt();
 
   const doneField = (
-    <div className={`TodoItem-content-extra-2 ${status}`}>
+    <div className={`TodoItem-content-extra-2 ${status.toLowerCase()}`}>
       {status.toUpperCase()}
     </div>
   );
