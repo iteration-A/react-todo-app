@@ -5,7 +5,21 @@ function todosReducer(state, action) {
     case "REMOVE":
       return state.filter((todo) => todo.id !== action.id);
     case "UPDATE":
-      return state;
+      return state.map((todo) =>
+        todo.id === action.todoId ? action.newTodo : todo
+      );
+    case "UPDATE_DONE":
+      return state.map((todo) =>
+        todo.id === action.todoId ? { ...todo, status: "Done" } : todo
+      );
+    case "UPDATE_DOING":
+      return state.map((todo) =>
+        todo.id === action.todoId ? { ...todo, status: "Doing" } : todo
+      );
+    case "UPDATE_PENDING":
+      return state.map((todo) =>
+        todo.id === action.todoId ? { ...todo, status: "Pending" } : todo
+      );
     case "REMOVE_ALL":
       return [];
     default:

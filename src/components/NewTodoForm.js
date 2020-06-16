@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Link, withRouter } from "react-router-dom";
+import uuid from "uuid/dist/v4";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
@@ -9,19 +10,30 @@ import Select from "@material-ui/core/Select";
 import useInputForm from "../hooks/useInputForm";
 import usePrompt from "../hooks/usePrompt";
 import NewTodoFormCategoryPropmt from "./NewTodoFormCategoryPrompt";
+import { TodosContext } from "../contexts/todos.context";
 import { DispatchTodosContext } from "../contexts/todos.context";
 import { CategoriesContext } from "../contexts/todos.context";
 import "./NewTodoForm.css";
 
 function NewTodoForm(props) {
+  const { history, match } = props;
+
+  const todo = useContext(TodosContext).filter((todo) => {
+    return todo.id === match.params.todoId;
+  })[0];
+
   const dispatchTodos = useContext(DispatchTodosContext);
   const { categories, addCategory } = useContext(CategoriesContext);
 
-  const { history } = props;
-
-  const [todoName, updateTodoName, todoNameWordsLeft] = useInputForm("", 50);
-  const [todoInfo, updateTodoInfo, todoInfoWordsLeft] = useInputForm("", 140);
-  const [todoLabel, updateTodoLabel] = useInputForm();
+  const [todoName, updateTodoName, todoNameWordsLeft] = useInputForm(
+    todo ? todo.name : "",
+    50
+  );
+  const [todoInfo, updateTodoInfo, todoInfoWordsLeft] = useInputForm(
+    todo ? todo.info : "",
+    140
+  );
+  const [todoLabel, updateTodoLabel] = useInputForm(todo ? todo.category : "");
 
   const [popup, openPopup, closePopup] = usePrompt();
 
@@ -35,7 +47,19 @@ function NewTodoForm(props) {
       status: "Pending",
     };
 
-    dispatchTodos({ type: "ADD", newTodo });
+    // If is editing
+    if (todo)
+      dispatchTodos({
+        type: "UPDATE",
+        todoId: todo.id,
+        newTodo: { ...newTodo, id: todo.id },
+      });
+    else
+      dispatchTodos({
+        type: "ADD",
+        newTodo: { ...newTodo, id: uuid() },
+      });
+
     history.push("/");
   };
 
