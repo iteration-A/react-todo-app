@@ -3,7 +3,7 @@ function todosReducer(state, action) {
     case "ADD":
       return [...state, action.newTodo];
     case "REMOVE":
-      return state.filter((todo) => todo.id !== action.id);
+      return state.filter((todo) => todo.id !== action.todoId);
     case "UPDATE":
       return state.map((todo) =>
         todo.id === action.todoId ? action.newTodo : todo

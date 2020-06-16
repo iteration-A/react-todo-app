@@ -13,7 +13,7 @@ function TodoItemPrompt(props) {
 
   const { history, open, status, todoId, close } = props;
 
-  const options = ["Done", "Doing", "Pending", "Edit"].filter(
+  const options = ["Done", "Doing", "Pending", "Edit", "Delete"].filter(
     (option) => option !== status
   );
 
@@ -30,6 +30,9 @@ function TodoItemPrompt(props) {
         break;
       case "Pending":
         dispatchTodos({ type: "UPDATE_PENDING", todoId });
+        break;
+      case "Delete":
+        dispatchTodos({ type: "REMOVE", todoId });
         break;
       default:
         close();
