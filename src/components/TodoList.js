@@ -12,9 +12,11 @@ export default function TodoList(props) {
 
   const [filter, setFilter] = useState("Pending");
 
-  const todoItems = todos
-    .filter((todo) => todo.status === filter)
-    .map((todo) => <TodoItem {...todo} />);
+  const todoItems = filter
+    ? todos
+        .filter((todo) => todo.status === filter)
+        .map((todo) => <TodoItem {...todo} />)
+    : todos.map((todo) => <TodoItem {...todo} />);
 
   return (
     <div className="TodoList">
