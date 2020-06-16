@@ -16,6 +16,11 @@ export default function TodoApp() {
             path="/new"
             render={(routeProps) => <NewTodoForm {...routeProps} />}
           />
+          <Route
+            exact
+            path="/edit/:todoId"
+            render={(routeProps) => <NewTodoForm {...routeProps} />}
+          />
         </TodosProvider>
         <Redirect to="/" />
       </Switch>

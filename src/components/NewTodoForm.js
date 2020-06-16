@@ -32,7 +32,7 @@ function NewTodoForm(props) {
       name: todoName,
       info: todoInfo,
       category: todoLabel,
-      status: "pending",
+      status: "Pending",
     };
 
     dispatchTodos({ type: "ADD", newTodo });

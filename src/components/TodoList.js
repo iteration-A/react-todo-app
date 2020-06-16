@@ -12,7 +12,7 @@ export default function TodoList(props) {
   const dispatchTodos = useContext(DispatchTodosContext);
   const removeAllTodos = () => dispatchTodos({ type: "REMOVE_ALL" });
 
-  const [filter, setFilter] = useState("pending");
+  const [filter, setFilter] = useState("Pending");
 
   const todoItems = todos
     .filter((todo) => todo.status === filter)
@@ -24,7 +24,7 @@ export default function TodoList(props) {
         <h1>Your todos</h1>
       </div>
       <div className="TodoList-filters">
-        {["pending", "doing", "done"].map((f) => (
+        {["Pending", "Doing", "Done"].map((f) => (
           <TodoListFilterButton
             updateFilter={setFilter}
             title={f}
