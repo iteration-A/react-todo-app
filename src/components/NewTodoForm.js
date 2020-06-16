@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, withRouter } from "react-router-dom";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
@@ -9,10 +9,15 @@ import Select from "@material-ui/core/Select";
 import useInputForm from "../hooks/useInputForm";
 import usePrompt from "../hooks/usePrompt";
 import NewTodoFormCategoryPropmt from "./NewTodoFormCategoryPrompt";
+import { DispatchTodosContext } from "../contexts/todos.context";
+import { CategoriesContext } from "../contexts/todos.context";
 import "./NewTodoForm.css";
 
-export default function NewTodoForm(props) {
-  const { categories, addTodo, history, addCategory } = props;
+function NewTodoForm(props) {
+  const dispatchTodos = useContext(DispatchTodosContext);
+  const { categories, addCategory } = useContext(CategoriesContext);
+
+  const { history } = props;
 
   const [todoName, updateTodoName, todoNameWordsLeft] = useInputForm("", 50);
   const [todoInfo, updateTodoInfo, todoInfoWordsLeft] = useInputForm("", 140);
@@ -30,11 +35,9 @@ export default function NewTodoForm(props) {
       status: "pending",
     };
 
-    addTodo(newTodo);
+    dispatchTodos({ type: "ADD", newTodo });
     history.push("/");
   };
-
-  console.log(categories);
 
   return (
     <div className="NewTodoForm">
@@ -108,3 +111,5 @@ export default function NewTodoForm(props) {
     </div>
   );
 }
+
+export default withRouter(NewTodoForm);

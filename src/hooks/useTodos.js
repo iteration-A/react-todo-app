@@ -1,20 +1,18 @@
-import { useState } from "react";
+import { useReducer, useEffect } from "react";
 
-const useTodos = (initialTodos = []) => {
-  const [todos, setTodos] = useState(initialTodos);
+const useTodos = (key, reducer, defaultValues = []) => {
+  const [todos, dispatch] = useReducer(reducer, defaultValues, () => {
+    if (window.localStorage.getItem(key) === null) return defaultValues;
 
-  const addTodo = (newTodo) => setTodos([...todos, newTodo]);
-  const removeTodo = (todoId) => {
-    const newTodos = todos.filter((todo) => todo.id !== todoId);
-    setTodos(newTodos);
-  };
-  const updateTodo = (todoId, newTodo) => {
-    const newTodos = todos.filter((todo) => todo.id !== todoId);
-    setTodos([...newTodos, newTodo]);
-  };
-  const removeAllTodos = () => setTodos([]);
+    return JSON.parse(window.localStorage.getItem(key));
+  });
 
-  return [todos, addTodo, updateTodo, removeTodo, removeAllTodos];
+  useEffect(() => {
+    const todosString = JSON.stringify(todos);
+    window.localStorage.setItem("todos", todosString);
+  }, [todos]);
+
+  return [todos, dispatch];
 };
 
 export default useTodos;

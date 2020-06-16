@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import IconButton from "@material-ui/core/IconButton";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import TodoItem from "./TodoItem";
 import TodoListFilterButton from "./TodoListFilterButton";
+import { TodosContext, DispatchTodosContext } from "../contexts/todos.context";
 import "./TodoList.css";
 
 export default function TodoList(props) {
-  const { todos, clearTodos } = props;
+  const todos = useContext(TodosContext);
+  const dispatchTodos = useContext(DispatchTodosContext);
+  const removeAllTodos = () => dispatchTodos({ type: "REMOVE_ALL" });
 
   const [filter, setFilter] = useState("pending");
 
@@ -42,10 +45,10 @@ export default function TodoList(props) {
       {todoItems}
       {todos.length > 0 && (
         <button
-          onClick={clearTodos}
+          onClick={removeAllTodos}
           className=" TodoList-btn TodoList-remove-todos"
         >
-          Clear all todos
+          Remove all todos
         </button>
       )}
     </div>

@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 
 const useCategories = () => {
+  const categoriesInLocalStorage =
+    JSON.parse(window.localStorage.getItem("categories")) || [];
+
   const [categories, setCategories] = useState(
-    JSON.parse(window.localStorage.getItem("categories")) || []
+    categoriesInLocalStorage.length > 0 ? categoriesInLocalStorage : ["Life"]
   );
 
   const addCategory = (categoryName) => {
