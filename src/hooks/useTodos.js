@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 const useTodos = (initialTodos = []) => {
-  console.log(initialTodos);
   const [todos, setTodos] = useState(initialTodos);
 
   const addTodo = (newTodo) => setTodos([...todos, newTodo]);
@@ -13,8 +12,9 @@ const useTodos = (initialTodos = []) => {
     const newTodos = todos.filter((todo) => todo.id !== todoId);
     setTodos([...newTodos, newTodo]);
   };
+  const removeAllTodos = () => setTodos([]);
 
-  return [todos, addTodo, updateTodo, removeTodo];
+  return [todos, addTodo, updateTodo, removeTodo, removeAllTodos];
 };
 
 export default useTodos;

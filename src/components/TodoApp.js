@@ -8,14 +8,12 @@ import checkLocalStorage from "./helpers/seedInfo";
 import "./TodoApp.css";
 
 export default function TodoApp() {
-  const [todos, addTodo, updateTodo, removeTodo] = useTodos(
+  //updateTodo, removeTodo
+  const [todos, addTodo, removeAllTodos] = useTodos(
     checkLocalStorage()
   );
 
-  // Extracts categories only once, wrapped in a array so I can use map later
-  const [categories, addCategory] = useCategories([
-    ...new Set(todos.map((todo) => todo.category)),
-  ]);
+  const [categories, addCategory] = useCategories();
 
   // Synchronize to localStorage after a change
   useEffect(() => {
@@ -26,7 +24,11 @@ export default function TodoApp() {
   return (
     <div className="TodoApp">
       <Switch>
-        <Route exact path="/" render={() => <TodoList todos={todos} />} />
+        <Route
+          exact
+          path="/"
+          render={() => <TodoList todos={todos} clearTodos={removeAllTodos} />}
+        />
         <Route
           exact
           path="/new"

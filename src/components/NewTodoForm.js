@@ -14,8 +14,8 @@ import "./NewTodoForm.css";
 export default function NewTodoForm(props) {
   const { categories, addTodo, history, addCategory } = props;
 
-  const [todoName, updateTodoName] = useInputForm();
-  const [todoInfo, updateTodoInfo] = useInputForm();
+  const [todoName, updateTodoName, todoNameWordsLeft] = useInputForm("", 50);
+  const [todoInfo, updateTodoInfo, todoInfoWordsLeft] = useInputForm("", 140);
   const [todoLabel, updateTodoLabel] = useInputForm();
 
   const [popup, openPopup, closePopup] = usePrompt();
@@ -34,6 +34,8 @@ export default function NewTodoForm(props) {
     history.push("/");
   };
 
+  console.log(categories);
+
   return (
     <div className="NewTodoForm">
       <Link to="/" className="NewTodoForm-go-back">
@@ -42,7 +44,9 @@ export default function NewTodoForm(props) {
       <h1 className="NewTodoForm-title">Create a new todo</h1>
       <form onSubmit={handleSubmit} className="NewTodoForm-form">
         <div className="NewTodoForm-input">
-          <label for="name">Todo name (10 words)</label>
+          <label for="name">
+            Todo name ({todoNameWordsLeft} characters left)
+          </label>
           <input
             required
             id="name"
@@ -52,7 +56,9 @@ export default function NewTodoForm(props) {
           />
         </div>
         <div className="NewTodoForm-input">
-          <label for="info">Additional information (250 characters)</label>
+          <label for="info">
+            Additional information ({todoInfoWordsLeft} characters left)
+          </label>
           <textarea
             id="info"
             value={todoInfo}

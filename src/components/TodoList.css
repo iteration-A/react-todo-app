@@ -61,20 +61,30 @@
   border-bottom-left-radius: 0;
 }
 
-.TodoList-add-todo {
+.TodoList-btn {
   margin: 15px 0 0 0;
-  background-color: blueviolet;
-  padding: 2px 25px 2px 49px;
   text-align: center;
   border-radius: 25px;
   cursor: pointer;
+  background-color: crimson;
+  padding: 15px 25px;
+  border: none;
+}
+.TodoList-add-todo {
+  padding: 15px 25px 15px 49px;
+  background-color: blueviolet;
+}
+.TodoList-add-todo-wrapper {
+  margin: 15px 0 0 0;
 }
 .TodoList-add-todo a {
   text-decoration: none;
+}
+.TodoList-btn {
+  text-decoration: none;
   color: aliceblue;
 }
-
-.TodoList-add-todo svg {
+.TodoList-btn svg {
   font-size: 24px;
   color: aliceblue;
 }
