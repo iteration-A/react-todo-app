@@ -88,3 +88,19 @@
   font-size: 24px;
   color: aliceblue;
 }
+
+.TodoList-todos {
+}
+
+.TodoList-todos.active {
+  animation: slide-up 1s ease;
+}
+
+@keyframes slide-up {
+  from {
+    margin-top: 150px;
+  }
+  to {
+    margin-top: 0;
+  }
+}
