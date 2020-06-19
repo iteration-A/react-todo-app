@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import TodoList from "./TodoList";
 import NewTodoForm from "./NewTodoForm";
@@ -52,44 +52,4 @@ export default function TodoApp() {
       <Redirect to="/" />
     </div>
   );
-}
-
-const routes = [
-  {
-    path: "/",
-    name: "Home",
-    component: TodoList,
-  },
-  {
-    path: "/new",
-    name: "New todo form",
-    Component: NewTodoForm,
-  },
-  {
-    path: "/edit",
-    name: "Edit todo form",
-    Component: NewTodoForm,
-  },
-];
-
-{
-  /* <TodosProvider>
-        {routes.map(({ path, Component }) => (
-          <Route key={path} exact path={path}>
-            {({ match }) => (
-              <CSSTransition
-                in={match != null}
-                timeout={300}
-                classNames="page"
-                unmountOnExit
-              >
-                <div className="page">
-                  <Component />
-                </div>
-              </CSSTransition>
-            )}
-          </Route>
-        ))}
-        <Redirect to="/" />
-      </TodosProvider> */
 }
