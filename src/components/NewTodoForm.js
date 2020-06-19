@@ -19,7 +19,9 @@ function NewTodoForm(props) {
   const { history, match } = props;
 
   const todo = useContext(TodosContext).filter((todo) => {
-    return todo.id === match.params.todoId;
+    try {
+      return todo.id === match.params.todoId;
+    } catch {}
   })[0];
 
   const dispatchTodos = useContext(DispatchTodosContext);
