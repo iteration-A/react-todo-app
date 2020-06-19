@@ -43,7 +43,7 @@ function TodoItemPrompt(props) {
   return (
     <Dialog onClose={close} aria-labelledby="More options" open={open}>
       <DialogTitle id="More-options">What do you want to do?</DialogTitle>
-      <List>
+      <List className="TodoItemPrompt">
         {options.map((option) => {
           return (
             <ListItem
