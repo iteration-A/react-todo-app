@@ -3,7 +3,9 @@
   width: 70%;
   border-radius: 25px;
   padding: 5%;
-  min-height: 100vh;
+  min-height: min-content;
+  overflow: scroll;
+  height: 100vh;
   position: relative;
 }
 
@@ -28,6 +30,12 @@
   }
 }
 
+@media only screen and (max-height: 400px) {
+  .NewTodoForm {
+    padding-top: 9%;
+  }
+}
+
 .NewTodoForm-title {
   font-weight: 100;
   font-size: 2.5rem;
@@ -43,6 +51,13 @@
 @media only screen and (min-width: 600px) and (max-width: 900px) {
   .NewTodoForm-title {
     font-size: 2.2rem;
+  }
+}
+
+@media only screen and (max-height: 400px) {
+  .NewTodoForm-title {
+    font-size: 1.5rem;
+    margin-bottom: 0;
   }
 }
 
@@ -76,6 +91,12 @@
   font-size: 1.7rem;
   color: blueviolet;
   margin-bottom: 1rem;
+}
+
+@media only screen and (max-height: 400px) {
+  .NewTodoForm-input label {
+    margin-bottom: 0.3rem;
+  }
 }
 
 @media only screen and (max-width: 600px) {
