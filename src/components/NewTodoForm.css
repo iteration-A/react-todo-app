@@ -73,9 +73,6 @@
 }
 
 .NewTodoForm-input label {
-  position: absolute;
-  top: -44px;
-  left: 0;
   font-size: 1.7rem;
   color: blueviolet;
   margin-bottom: 1rem;
