@@ -6,6 +6,13 @@ body {
   line-height: 1.5;
   font-family: Roboto, sans-serif;
   scrollbar-color: transparent;
+  font-size: 52.6%;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 45%;
+  }
 }
 
 body::-webkit-scrollbar {

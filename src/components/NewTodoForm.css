@@ -1,6 +1,6 @@
 .NewTodoForm {
   background-color: aliceblue;
-  width: 50%;
+  width: 70%;
   border-radius: 25px;
   padding: 5%;
   min-height: 100vh;
@@ -9,21 +9,22 @@
 
 @media only screen and (max-width: 600px) {
   .NewTodoForm {
-    width: 90%;
-    padding-top: 10%;
+    width: 100%;
+    border-radius: 0;
+    padding-top: 20%;
   }
 }
 
 @media only screen and (min-width: 600px) and (max-width: 900px) {
   .NewTodoForm {
-    width: 70%;
+    width: 90%;
     padding-top: 10%;
   }
 }
 
 @media only screen and (min-width: 900px) and (max-width: 1200px) {
   .NewTodoForm {
-    width: 65%;
+    width: 80%;
   }
 }
 
@@ -54,20 +55,20 @@
   color: aliceblue;
   border: none;
   border-radius: 25px;
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
 }
 
 @media only screen and (max-width: 600px) {
   .NewTodoForm-go-back {
-    font-size: 12px;
+    font-size: 0.8rem;
     padding: 7px 12px;
   }
 }
 
 @media only screen and (min-width: 600px) and (max-width: 900px) {
   .NewTodoForm-go-back {
-    font-size: 14px;
+    font-size: 0.7rem;
   }
 }
 
@@ -75,19 +76,19 @@
   position: absolute;
   top: -44px;
   left: 0;
-  font-size: 24px;
+  font-size: 1.7rem;
   color: blueviolet;
 }
 
 @media only screen and (max-width: 600px) {
   .NewTodoForm-input label {
-    font-size: 20px;
+    font-size: 1rem;
   }
 }
 
 @media only screen and (min-width: 600px) and (max-width: 900px) {
   .NewTodoForm-input label {
-    font-size: 20px;
+    font-size: 1.5rem;
   }
 }
 
