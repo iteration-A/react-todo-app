@@ -5,6 +5,11 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   font-family: Roboto, sans-serif;
+  scrollbar-color: transparent;
+}
+
+body::-webkit-scrollbar {
+  background-color: transparent;
 }
 
 ul[class],

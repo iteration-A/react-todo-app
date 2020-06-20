@@ -12,6 +12,7 @@
 .TodoItem-title {
   color: #1d1c1c;
   font-size: 1.2rem;
+  word-break: break-all;
 }
 
 .TodoItem-content {
@@ -22,15 +23,9 @@
 
 .TodoItem-content-extra {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   margin: 0 -12px;
-}
-
-.TodoItem-content-extra-1,
-.TodoItem-content-extra-1 svg {
-  color: #2e2d2d67;
-  font-size: 90%;
 }
 
 .TodoItem-content-extra-2 {
