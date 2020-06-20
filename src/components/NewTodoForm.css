@@ -78,6 +78,7 @@
   left: 0;
   font-size: 1.7rem;
   color: blueviolet;
+  margin-bottom: 1rem;
 }
 
 @media only screen and (max-width: 600px) {
